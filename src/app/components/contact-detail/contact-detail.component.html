@@ -1,0 +1,63 @@
+<button type="button" (click)="goBack()">Go Back</button>
+
+<div class="fluid-container" ngIF="contact">
+    <div class="card" style="width: 30%;">
+        <img class="card-img-top" src={{contact.imageUrl}} alt="ProfilePic">
+        <div class="card-body">
+            <h5 class="card-title">{{contact.firstname}} {{contact.lastname}}</h5>
+            <div class="row justify-content-center mt-2">
+                <div class="col mt-10" style="text-align: center;">
+                    <label for="contactId">ID: </label>
+                </div>
+                <div class="col mt-10" style="text-align: center;">
+                    <input id="contactId" [(ngModel)]="contact.id" placeholder="ID" readonly>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-2">
+                <div class="col mt-10" style="text-align: center;">
+                    <label for="contactName">Nome: </label>
+                </div>
+                <div class="col mt-10" style="text-align: center;">
+                    <input id="contactName" [(ngModel)]="contact.firstname" placeholder="Nome">
+                </div>
+            </div>
+            <div class="row justify-content-center mt-2">
+                <div class="col mt-10" style="text-align: center;">
+                    <label for="contactSurname">Cognome </label>
+                </div>
+                <div class="col mt-10" style="text-align: center;">
+                    <input id="contactSurname" [(ngModel)]="contact.lastname" placeholder="Cognome">
+                </div>
+            </div>
+            <div class="row justify-content-center mt-2">
+                <div class="col mt-10" style="text-align: center;">
+                    <label for="contactEmail">Email: </label>
+                </div>
+                <div class="col mt-10" style="text-align: center;">
+                    <input id="contactEmail" [(ngModel)]="contact.email" placeholder="Email">
+                </div>
+            </div>
+            <div class="row justify-content-center mt-2">
+                <div class="col mt-10" style="text-align: center;">
+                    <label for="contactType">Type: </label>
+                </div>
+                <div class="col mt-10" style="text-align: center;">
+                    <input id="contactType" [(ngModel)]="contact.type" placeholder="Type">
+                </div>
+            </div>
+            <div class="row justify-content-center mt-2">
+                <div class="col mt-10" style="text-align: center;">
+                    <label for="contactProfilePic">Immagine di Profilo: </label>
+                </div>
+                <div class="col mt-10" style="text-align: center;">
+                    <input id="contactProfilePic" [(ngModel)]="contact.imageUrl" placeholder="ProfilePic">
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-success w-100" type="button" (click)="save()">Save</button>
+            </div>
+        </div>
+    </div>  
+</div>
+
+
