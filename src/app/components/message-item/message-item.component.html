@@ -1,8 +1,10 @@
-<a routerLink="/whatsapp/{{contact.id}}">   
-    <div class="container" style="border: 1px solid black;">
-        <div class="profile-pic">
-            <img src={{contact.imageUrl}}>
-            <span>{{contact.firstname}}</span> {{contact.lastname}}
-        </div>
-    </div>
-</a>
+<div class="contatto">
+    <a routerLink="/whatsapp/{{contact.id}}" id="singleContact">
+      <span>      
+        <img src="{{contact.imageUrl}}" alt="foto contatto" height="70px">
+             
+        <p>Nome: {{contact.firstname}}</p>
+        <p>Cognome: {{contact.lastname}}</p>
+      </span>
+    </a>
+</div>

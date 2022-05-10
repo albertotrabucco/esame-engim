@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 
 import { Contact } from 'src/app/interfaces/contact';
-import { ContactServiceService } from 'src/app/services/contact-service.service';
+import { ContactService } from 'src/app/services/contact.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-contact-list',
@@ -17,7 +18,7 @@ export class ContactListComponent implements OnInit {
 
   constructor(
     private location: Location,
-    private contactService: ContactServiceService
+    private contactService: ContactService
   ) { }
 
   ngOnInit(): void {
@@ -30,6 +31,18 @@ export class ContactListComponent implements OnInit {
 
   goBack(): void{
     this.location.back();
+  }
+
+  searchContactByNome(searchNome: string) : void {
+    this.contactService.searchContactByFirstname(searchNome).subscribe(data => {
+      this.contacts = data;
+    });
+  }
+
+  searchContactByCognome(searchCognome: string) : void {
+    this.contactService.searchContactByLastname(searchCognome).subscribe(data => {
+      this.contacts = data;
+    });
   }
 
 

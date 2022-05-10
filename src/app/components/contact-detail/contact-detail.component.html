@@ -1,7 +1,7 @@
 <button type="button" (click)="goBack()">Go Back</button>
 
-<div class="fluid-container" ngIF="contact">
-    <div class="card" style="width: 30%;">
+<div *ngIf="contact" class="container" >
+    <div *ngIf="contact.id > 0" class="card">
         <img class="card-img-top" src={{contact.imageUrl}} alt="ProfilePic">
         <div class="card-body">
             <h5 class="card-title">{{contact.firstname}} {{contact.lastname}}</h5>
@@ -55,9 +55,59 @@
             </div>
             <div>
                 <button class="btn btn-success w-100" type="button" (click)="save()">Save</button>
+                <button class="btn btn-danger w-100" type="button" (click)="delete(contact.id)">Delete</button>
             </div>
         </div>
-    </div>  
+    </div>
+    <div *ngIf="contact.id==0"  class="card">
+        <div class="card-body">
+            <div class="row justify-content-center mt-2">
+                <div class="col mt-10" style="text-align: center;">
+                    <label for="firstname">Name: </label>
+                </div>
+                <div class="col mt-10" style="text-align: center;">
+                    <input type="text" #firstname>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-2">
+                <div class="col mt-10" style="text-align: center;">
+                    <label for="lastname">Cognome: </label>
+                </div>
+                <div class="col mt-10" style="text-align: center;">
+                    <input type="text" #lastname>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-2">
+                <div class="col mt-10" style="text-align: center;">
+                    <label for="email">Email: </label>
+                </div>
+                <div class="col mt-10" style="text-align: center;">
+                    <input type="text" #email>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-2">
+                <div class="col mt-10" style="text-align: center;">
+                    <label for="type">Type: </label>
+                </div>
+                <div class="col mt-10" style="text-align: center;">
+                    <input type="text" #type>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-2">
+                <div class="col mt-10" style="text-align: center;">
+                    <label for="imageUrl">Url Immagine: </label>
+                </div>
+                <div class="col mt-10" style="text-align: center;">
+                    <input type="text" #imageUrl>
+                </div>
+                
+            </div>
+            <br>
+            <div>
+                <button (click)="add(firstname.value, lastname.value, email.value, type.value, imageUrl.value );  " class="btn btn-success w-100">Add contact</button>
+            </div>
+        </div>
+    </div> 
 </div>
 
 

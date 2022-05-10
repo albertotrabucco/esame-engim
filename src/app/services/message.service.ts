@@ -9,10 +9,9 @@ import { Answer } from '../interfaces/answer';
 @Injectable({
   providedIn: 'root'
 })
-export class MessageServiceService {
-
-
-  private messageUrl = 'api/mesages';
+export class MessageService {  
+  
+  private messageUrl = 'api/messages';
   private answerUrl = 'api/answers';
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -33,11 +32,11 @@ export class MessageServiceService {
   }
 
   //GET
-  getMessages(id: number): Observable<Message[]>{
-    const url = `${this.messageUrl}/${id}`;
+  getMessages(): Observable<Message[]>{
+    const url = `${this.messageUrl}`;
     return this.http.get<Message[]>(this.messageUrl).pipe(
       tap(_ => console.log('fetched messages')),
-      catchError(this.handleError<Message[]>('getMessagesm',[]))
+      catchError(this.handleError<Message[]>('getMessages',[]))
     );
   }
 
@@ -61,5 +60,13 @@ export class MessageServiceService {
       tap((newMessage: Message) => console.log(`added message w/ id=${newMessage.id}`)),
       catchError(this.handleError<Message>('addMessage'))
     );
+  }
+
+  updateMessage(message: Message): Observable<Message> {
+    return this.http.put<Message>('api/messages', message);
+  }
+
+  searchMessage(search: string): Observable<Message[]> {     
+    return this.http.get<Message[]>(`api/messages/?message=${search}`)
   }
 }

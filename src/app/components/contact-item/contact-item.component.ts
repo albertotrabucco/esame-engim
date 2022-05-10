@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 
 import { Contact } from 'src/app/interfaces/contact';
-import { ContactServiceService } from 'src/app/services/contact-service.service';
+import { ContactService } from 'src/app/services/contact.service';
 
 @Component({
   selector: 'app-contact-item',
@@ -14,7 +14,7 @@ export class ContactItemComponent implements OnInit {
   @Input('item')
   public contact !: Contact;
 
-  constructor(private contactService: ContactServiceService) { }
+  constructor(private contactService: ContactService) { }
 
   ngOnInit(): void {
   }

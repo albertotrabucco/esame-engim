@@ -1,0 +1,29 @@
+.messages {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonSend {
+    width: 80px;
+    height: 80px;
+}
+
+.outcoming {
+    align-self: flex-end;
+    background-color: rgba(64, 219, 64, 0.842);
+    border-radius: 7px;   
+    padding: 3px;
+    width: fit-content;
+}
+.incoming {   
+    background-color: rgba(170, 78, 209, 0.63);
+    border-radius: 7px;
+    padding: 3px;    
+    width: fit-content; 
+}
+
+#text-box{
+    width: 100%;
+}
+
+
