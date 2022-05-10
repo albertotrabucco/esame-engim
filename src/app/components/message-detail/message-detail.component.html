@@ -15,9 +15,7 @@
             {{item.message}}
             <button *ngIf="item.type=='outcoming'" (click)="updateMessage(item) "> x </button>
         </div>
-
         <div *ngIf="item.deleted==true;" [class.outcoming]="item.type=='outcoming'">{{messageDeleted}}</div>
-
         <div *ngIf="item.type=='incoming'" [class.incoming]="item.type=='incoming'"> {{item.message}}</div>
     </div>
 </div>
