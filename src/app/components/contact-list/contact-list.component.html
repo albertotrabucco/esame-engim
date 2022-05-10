@@ -1,18 +1,49 @@
-
-
-<nav class="container row">
+<nav class="container-fluid row w-100">
     <div class="col mt-1">
         <button type="button" (click)="goBack()">Go Back</button>
     </div>
-    <div class="col">
+    <div class="col" *ngIf="contacts">
         <h2>{{title}}</h2>
+    </div>
+    <div class="col mt-1">
+        <a routerLink="/contact/0" id="button">
+            <button class="button">Add New Contact</button>
+        </a>
+    </div>
+    <div class="row w-100">
+        <label for="search-box">Cerca tra i contatti (Inserisci il NOME)</label>
+        <input #searchNome id="search-box" (input)="searchContactByNome(searchNome.value)" /> <br>
+    </div>
+    <div class="row w-100">
+        <label for="search-box">Cerca tra i contatti (Inserisci il COGNOME)</label>
+        <input #searchCognome id="search-box" (input)="searchContactByCognome(searchCognome.value)" /> <br>
     </div>
 </nav>
 
-<div class="container">
-    <ul class="contacts">
-        <li *ngFor="let contact of contacts">
-            <app-contact-item [item]="contact"></app-contact-item>
-        </li>
-    </ul>
-</div>   
+<div class="container-fluid">
+    <div class="row w-100">
+        <div class="col-6">
+            <div id="stud"><span >STUDENTI: </span></div>
+            <div *ngFor="let contact of contacts">
+                <div *ngIf="contact.type == 'student'; else elseBlock">  
+                    <app-contact-item [item]="contact" class="cella"></app-contact-item>                  
+                </div>
+            <ng-template #elseBlock class="vuoto"></ng-template>
+            </div>
+        </div>
+        <div class="col-6">
+            <div id="teach"><span >INSEGNANTI: </span></div>
+            <div *ngFor="let contact of contacts">
+                <div *ngIf="contact.type == 'teacher'; else elseBlock">               
+                    <app-contact-item [item]="contact" class="cella" ></app-contact-item>     
+                </div>
+                <ng-template #elseBlock class="vuoto"></ng-template>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    
+

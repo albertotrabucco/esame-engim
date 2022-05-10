@@ -3,4 +3,5 @@ export interface Message {
     userId: number,
     type: 'incoming' | 'outcoming',
     message: string
+    deleted?: boolean
 }

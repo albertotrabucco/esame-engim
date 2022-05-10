@@ -1,18 +1,16 @@
-
-
-<nav class="container row">
-    <div class="col mt-1">
-        <button type="button" (click)="goBack()">Go Back</button>
-    </div>
-    <div class="col">
-        <h2>{{title}}</h2>
+<nav class="container">
+    <div class="row">
+        <div class="col-sm-5" id="button">
+            <button type="button" (click)="goBack()">Go Back</button>
+        </div>
+        <div class="col-sm-7" id="title">
+            <h2>{{title}}</h2>
+        </div>
     </div>
 </nav>
 
 <div class="container">
-    <ul class="contacts">
-        <li *ngFor="let contact of contacts">
+    <div class="contacts" *ngFor="let contact of contacts">
             <app-message-item [item]="contact"></app-message-item>
-        </li>
-    </ul>
+    </div>
 </div>   

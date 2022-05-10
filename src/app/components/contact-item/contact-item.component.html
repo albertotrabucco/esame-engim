@@ -1,9 +1,10 @@
 
-<a routerLink="/contact/{{contact.id}}">   
-    <div class="container" style="border: 1px solid black;">
-        <div class="profile-pic">
-            <img src={{contact.imageUrl}}>
-            <span>{{contact.firstname}}</span> {{contact.lastname}}
-        </div>
+
+  <a routerLink="/contact/{{contact.id}}" id="singleContact">
+    <div class="immagine">      
+      <img src="{{contact.imageUrl}}" alt="foto contatto" height="70px"  class="rounded mx-auto d-block">
+            
+      <p>{{contact.firstname}}</p>
+      <p>{{contact.lastname}}</p>
     </div>
-</a>
+  </a>

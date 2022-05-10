@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 
 import { Contact } from 'src/app/interfaces/contact';
-import { ContactServiceService } from 'src/app/services/contact-service.service';
+import { ContactService } from 'src/app/services/contact.service';
 
 @Component({
   selector: 'app-message-list',
@@ -17,7 +17,7 @@ export class MessageListComponent implements OnInit {
 
   constructor(
     private location: Location,
-    private contactService: ContactServiceService) { }
+    private contactService: ContactService) { }
 
   ngOnInit(): void {
     this.getContacts();
